@@ -10,10 +10,10 @@ from homeassistant.core import HomeAssistant
 from homeassistant.const import CONF_ACCESS_TOKEN, CONF_TOKEN
 from homeassistant.exceptions import ConfigEntryAuthFailed
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
-from python_frank_energie import FrankEnergie
 from python_frank_energie.exceptions import RequestException, AuthException
 from python_frank_energie.models import PriceData, MonthSummary, Invoices, MarketPrices
 
+from . import FrankEnergieApi
 from .const import DATA_ELECTRICITY, DATA_GAS, DATA_MONTH_SUMMARY, DATA_INVOICES
 
 LOGGER = logging.getLogger(__name__)
@@ -29,10 +29,10 @@ class FrankEnergieData(TypedDict):
 class FrankEnergieCoordinator(DataUpdateCoordinator):
     """Get the latest data and update the states."""
 
-    api: FrankEnergie
+    api: FrankEnergieApi
 
     def __init__(
-        self, hass: HomeAssistant, entry: ConfigEntry, api: FrankEnergie,
+        self, hass: HomeAssistant, entry: ConfigEntry, api: FrankEnergieApi,
     ) -> None:
         """Initialize the data object."""
         self.hass = hass

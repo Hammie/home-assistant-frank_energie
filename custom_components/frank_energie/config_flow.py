@@ -15,9 +15,9 @@ from homeassistant.const import (
     CONF_USERNAME,
 )
 from homeassistant.data_entry_flow import FlowResult
-from python_frank_energie import FrankEnergie
 from python_frank_energie.exceptions import AuthException
 
+from . import FrankEnergieApi
 from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
@@ -52,7 +52,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors=errors,
             )
 
-        async with FrankEnergie() as api:
+        async with FrankEnergieApi() as api:
             try:
                 auth = await api.login(
                     user_input[CONF_USERNAME], user_input[CONF_PASSWORD]
