@@ -3,7 +3,7 @@ from __future__ import annotations
 
 ATTRIBUTION = "Data provided by Frank Energie"
 DOMAIN = "frank_energie"
-DATA_URL = "https://frank-graphql-prod.graphcdn.app/"
+DATA_URL = "https://www.frankenergie.be/graphql/"
 ICON = "mdi:currency-eur"
 COMPONENT_TITLE = "Frank Energie"
 
