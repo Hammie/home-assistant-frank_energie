@@ -6,6 +6,7 @@ from .const import DATA_URL as CONFIG_DATA_URL
 
 LOGGER = logging.getLogger(__name__)
 
+
 class FrankEnergieApi(FrankEnergie):
     def __init__(
             self,
